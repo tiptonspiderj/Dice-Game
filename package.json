@@ -1,0 +1,21 @@
+{
+  "name": "Scrim-s0iegqamrr",
+  "description": "https://v2.scrimba.com/the-frontend-developer-career-path-c0j/~0vg",
+  "scripts": {
+    "watch": "webpack -w",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "nanoid": "3.1.28",
+    "react-confetti": "6.0.1",
+    "webpack": "^2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0",
+    "babel-loader": "^7.0",
+    "babel-preset-env": "*",
+    "babel-preset-react": "*"
+  }
+}
