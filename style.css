@@ -134,7 +134,7 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 100px;
+    gap: 50px;
 }
 
 h2 {

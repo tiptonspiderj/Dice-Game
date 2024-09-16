@@ -7,7 +7,7 @@ export default function Die(props) {
     let pips = Number.isInteger(props.value)
 		? Array(props.value)
 				.fill(0)
-				.map((_, i) => <span className="pip" />)
+				.map((_, i) => <span className="pip" key={i}/>)
 		: null;
     return (
         <div className="die-container" onClick={props.holdDice}>
