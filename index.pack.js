@@ -673,17 +673,17 @@ function Timer(props) {
         } else if (props.tenzies) {
           return prevTime;
         } else {
-          return prevTime - 1;
+          return prevTime - 0.01;
         }
       });
-    }, 1000);
+    }, 10);
     // Cleanup the interval when the component unmounts
     return function () {
       return clearInterval(timerInterval);
     };
   }, [props]); // The empty dependency array ensures the effect runs only once on mount
 
-  var seconds = timeRemaining % 60;
+  var seconds = Math.ceil(timeRemaining % 60);
 
   return _react2.default.createElement(
     "div",
