@@ -10,8 +10,9 @@ export default function Timer(props) {
         setTimeRemaining((prevTime) => {
           if (props.numberRolls === 1) {
             return prevTime = initialTime
-          } else if (prevTime === 0) {
-            clearInterval(timerInterval);
+          } else if (prevTime < 0) {
+            clearInterval(timerInterval)
+            props.setTimesup(true)
             // Perform actions when the timer reaches zero
             return 0           
           } else if (props.tenzies) {
@@ -23,7 +24,7 @@ export default function Timer(props) {
       }, 10)  
       // Cleanup the interval when the component unmounts
       return () => clearInterval(timerInterval)
-    }, [props]) // The empty dependency array ensures the effect runs only once on mount
+    }, [props]) // The dependency array ensures the effect runs when our props change
   
     const seconds = Math.ceil(timeRemaining % 60)
   

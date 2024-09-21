@@ -1,6 +1,7 @@
 import React from "react"
 import Die from "./components/Die"
 import Timer from "./components/Timer"
+import LoserCard from "./components/LoserCard"
 import {nanoid} from "nanoid"
 import Confetti from "react-confetti"
 
@@ -9,6 +10,8 @@ export default function App() {
     const [dice, setDice] = React.useState(allNewDice())
     const [tenzies, setTenzies] = React.useState(false)
     const [numberRolls, setNumberRolls] =  React.useState(1)
+    const [timesup, setTimesup] = React.useState(false)
+    const [firstCardRender, setFirstCardRender] = React.useState(true)
     
     React.useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
@@ -36,17 +39,20 @@ export default function App() {
     }
     
     function rollDice() {
-        if(!tenzies) {
+        if(tenzies || timesup) {
+             //reset to a new game 
+             setTenzies(false)
+             setDice(allNewDice())
+             setNumberRolls(1)
+             setTimesup(false)
+             setFirstCardRender(true)
+        } else {           
             setDice(oldDice => oldDice.map(die => {
                 return die.isHeld ? 
                     die :
                     generateNewDie()
             }))
             setNumberRolls(numberRolls + 1)
-        } else {
-            setTenzies(false)
-            setDice(allNewDice())
-            setNumberRolls(1)
         }
         
     }
@@ -91,16 +97,22 @@ export default function App() {
             <div className="dice-container">
                 {diceElements}
             </div>
-            <div className="user-info">
-                <Timer numberRolls={numberRolls} tenzies={tenzies} />
+            <div className="game-info">
+                <Timer numberRolls={numberRolls} tenzies={tenzies} setTimesup={setTimesup}/>
                 <button 
                     className="roll-dice" 
                     onClick={rollDice}
                 >
-                    {tenzies ? "New Game" : "Roll"}
+                    {(tenzies || timesup) ? "New Game" : "Roll"}
                 </button>
                 <h2>Rolls: {numberRolls}</h2>
             </div>
+            <LoserCard 
+                timesup={timesup} 
+                setTimesup={setTimesup}
+                firstCardRender={firstCardRender} 
+                setFirstCardRender={setFirstCardRender}
+            />
         </main>
     )
 }
