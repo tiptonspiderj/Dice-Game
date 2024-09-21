@@ -517,7 +517,7 @@ function App() {
     return _react2.default.createElement(
         "main",
         null,
-        tenzies && _react2.default.createElement(_reactConfetti2.default, { drawShape: function drawShape(ctx) {
+        tenzies && !timesup && _react2.default.createElement(_reactConfetti2.default, { drawShape: function drawShape(ctx) {
                 ctx.beginPath();
                 for (var i = 0; i < 22; i++) {
                     var angle = 0.35 * i;

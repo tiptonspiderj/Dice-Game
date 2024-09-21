@@ -76,7 +76,7 @@ export default function App() {
     
     return (
         <main>
-            {tenzies && 
+            {tenzies && !timesup &&
                 <Confetti drawShape={ctx => {
                     ctx.beginPath()
                     for(let i = 0; i < 22; i++) {
