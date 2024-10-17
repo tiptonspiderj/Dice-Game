@@ -19,7 +19,7 @@ npm run build
 ```
 or combine the terminal commands like 
 ```
-npm install && npm run dev
+npm install && npm run build
 ```
 If you don't know whether or not NPM is installed on your computer, type "npm -v" into your command terminal first.  It should return a number if it is installed.  
 
