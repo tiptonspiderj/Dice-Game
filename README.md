@@ -1,10 +1,10 @@
 # Dice Game
-This is general trivia game to be played with yourself or friends.
+This is a kid's game to be played with yourself online.  If you need to waste a few minutes, this game is for you.
 
 ## Description
 
-This project was made using Visual Code for the IDE along with React and Vite for compiling the code. This application reaches out to the Open Trivia Database API for the questions displayed in the application.
-You can select the trivia category from list of categories available from the Trivia Database API.  You can also choose the level of difficulty for the questions.  Only five questions are displayed at a time.  The application will tell you how you did on the quiz when you select the "Check answers" button.
+This project was made using Visual Code for the IDE along with React and Webpack for compiling the code. When you click the "Roll" button, a timer starts and you have 30 seconds to make all ten die the same number.  You click or select the die you wish to keep and they will turn green. If all ten dice are green and the same number under 30 seconds, you win the game.  Otherwise, you will get a notification that you have lost the game as a loser.
+
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ The dependencies are React and the Vite compiler.  I also used Visual Studio Cod
 
 | Color             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Background Color | ![#8b8b8b](https://via.placeholder.com/10/8b8b8b?text=+) #8b8b8b |
+| Background Color | ![#0b2434](https://via.placeholder.com/10/0b2434?text=+) #0b2434 |
 | Green Color | ![#0def17](https://via.placeholder.com/10/0def17?text=+) #0def17 |
 | Text Color | ![#8b8b8b](https://via.placeholder.com/10/8b8b8b=+) #8b8b8b |
 | Button Color | ![#0def18](https://via.placeholder.com/10/0def18?text=+) #0def18 |
