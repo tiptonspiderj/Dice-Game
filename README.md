@@ -24,7 +24,7 @@ The dependencies are React and the Vite compiler.  I also used Visual Studio Cod
 | ----------------- | ------------------------------------------------------------------ |
 | Background Color | ![#0b2434](https://via.placeholder.com/10/0b2434?text=+) #0b2434 |
 | Card Background Color | ![#f5f5f5](https://via.placeholder.com/10/f5f5f5?text) #f5f5f5 |
-| Dice Color | ![#d7d7d7](https://via.placeholder.com/10/d7d7d7) #d7d7d7 |
+| Dice Color | ![#d7d7d7](https://via.placeholder.com/10/d7d7d7=+) #d7d7d7 |
 | Selected Dice Color | ![#8b8b8b](https://via.placeholder.com/10/8b8b8b=+) #8b8b8b |
 | Button Color | ![#5035ff](https://via.placeholder.com/10/5035ff?text=+) #5035ff |
 
