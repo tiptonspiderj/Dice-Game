@@ -8,6 +8,8 @@ This project was made using Visual Code for the IDE along with React and Webpack
 
 ## Getting Started
 
+Click on the image below to see the live website.
+
 [![application images](https://github.com/tiptonspiderj/Dice-Game/blob/main/images/Screenshot.png)](https://tiptonspiderj1-dice-game.netlify.app/)
 
 ### Installing for Windows
