@@ -12,7 +12,16 @@ This project was made using Visual Code for the IDE along with React and Webpack
 
 ### Installing for Windows
 
-You can make a pull request from this repository and save it onto your local computer.  From there, open up the folder location with Visual Studio Code and run it with the live server extension.  However, you will have to make sure you have NPM installed onto your local machine first and run the following commands in your terminal within Visual Studio Code: "npm install" followed by "npm run dev"  or combine the terminal commands like "npm install && npm run dev".  If you don't know whether or not NPM is installed on your computer, type "npm -v" into your command terminal first.  It should return a number if it is installed.  You also have to ensure you are in the right folder directory of this project if you receive an error in the terminal within Visual Studio Code.
+You can make a clone of this repository and then extract all of the files into one folder.  From there, open up the folder location with Visual Studio Code and run it with the live server extension.  Live server is a plugin in Visual Studio Code.  You should be able to google how to enable live server in Visual Studio Code.  You will also have to ensure you have NPM installed onto your local machine first and run the following commands in your terminal within Visual Studio Code: 
+```
+npm install
+npm run build
+```
+or combine the terminal commands like 
+```
+npm install && npm run dev
+```
+If you don't know whether or not NPM is installed on your computer, type "npm -v" into your command terminal first.  It should return a number if it is installed.  
 
 ### Dependencies
 
