@@ -3,7 +3,7 @@ This is a kid's game to be played with yourself online.  If you need to waste a 
 
 ## Description
 
-This project was made using Visual Code for the IDE along with React and Webpack for compiling the code. When you click the "Roll" button, a timer starts and you have 30 seconds to make all ten die the same number.  You click or select the die you wish to keep and they will turn green. If all ten dice are green and the same number under 30 seconds, you win the game.  Otherwise, you will get a notification that you have lost the game as a loser.
+This project was made using Visual Code for the IDE along with React and Webpack for compiling the code. When you click the "Roll" button, a timer starts, and you have 30 seconds to make all ten die the same number.  You click or select the dice you wish to keep, and they will turn green. If all ten dice are green and the same number under 30 seconds, you win the game.  Otherwise, you will get a notification that you have lost the game as a loser.
 
 
 ## Getting Started
@@ -29,7 +29,7 @@ If you don't know whether or not NPM is installed on your computer, type "npm -v
 
 ### Dependencies
 
-The dependencies are React and the Webpack compiler.  I also used Visual Studio Code to make the project from scratch.  Visual Studio Code makes running this code really easy if you enable the "Live Server" extension.  If you have quesitons about that, you can find sources on how to enable the extension on YouTube.  Third party libraries used in the project are "nanoid" for creating keys when mapping over arrays and "react-confetti" for displaying a bonus animated graphic when you win the game.
+The dependencies are React and the Webpack compiler.  I also used Visual Studio Code to make the project from scratch.  Visual Studio Code makes running this code really easy if you enable the "Live Server" extension.  If you have questions about that, you can find sources on how to enable the extension on YouTube.  Third party libraries used in the project are "nanoid" for creating keys when mapping over arrays and "react-confetti" for displaying a bonus animated graphic when you win the game.
 
 ## Color Reference
 
