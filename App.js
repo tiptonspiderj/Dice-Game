@@ -6,7 +6,6 @@ import {nanoid} from "nanoid"
 import Confetti from "react-confetti"
 
 export default function App() {
-
     const [dice, setDice] = useState(allNewDice())
     const [numberRolls, setNumberRolls] =  useState(1)
     const [timesup, setTimesup] = useState(false)
@@ -14,14 +13,14 @@ export default function App() {
     
     function allNewDice() {
         return new Array(10)
-                .fill(0)
-                .map( num => {
-                    return {
-                        value: Math.ceil(Math.random() * 6),
-                        isHeld: false,
-                        id: nanoid()
-                    }            
-                })
+            .fill(0)
+            .map( num => {
+                return {
+                    value: Math.ceil(Math.random() * 6),
+                    isHeld: false,
+                    id: nanoid()
+                }            
+            } )
     }
     
     function rollDice() {
@@ -37,8 +36,7 @@ export default function App() {
                     {...die, value: Math.ceil(Math.random() * 6)}
             }))
             setNumberRolls(numberRolls + 1)
-        }
-        
+        }        
     }
     
     function holdDice(id) {
@@ -46,7 +44,7 @@ export default function App() {
             ( die.id === id ? 
             {...die, isHeld: !die.isHeld}
             : die )
-        ) )
+        ) ) 
     }
     
     const diceElements = dice.map(die => (
