@@ -1,27 +1,7 @@
-import React from "react"
-
-export default function LoserCard (props) {
-    const buttonRef = React.useRef(null);
-    const [myDisplay, setMyDisplay] = React.useState("none")
-
-  React.useEffect(() => {
-    const handleClick = () => {
-        setMyDisplay("none")
-        props.setTimesup(false)
-    }
-
-    if (props.timesup & props.firstCardRender){
-        setMyDisplay("inline")
-        props.setFirstCardRender(false)
-    }
-    
-
-    const buttonElement = buttonRef.current;
-    buttonElement.addEventListener('click', handleClick)
-  }, [props]);
+export default function LoserCard () {
 
     return(
-        <div className="modal" style={{display: myDisplay}}>
+        <div className="modal">
 			<div className="close-modal-btn-container">
 				<button ref = { buttonRef } className="modal-close-btn" >X</button>
 			</div>

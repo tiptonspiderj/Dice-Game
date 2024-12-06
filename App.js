@@ -10,8 +10,6 @@ export default function App() {
     const [dice, setDice] = useState(allNewDice())
     const [numberRolls, setNumberRolls] =  useState(1)
     const [timesup, setTimesup] = useState(false)
-    const [firstCardRender, setFirstCardRender] = useState(true)
-
     const tenzies = dice.every(die => die.isHeld) && dice.every(die => die.value === die[0].value)
     
     function allNewDice() {
@@ -32,7 +30,6 @@ export default function App() {
              setDice(allNewDice())
              setNumberRolls(1)
              setTimesup(false)
-             setFirstCardRender(true)
         } else {           
             setDice(oldDice => oldDice.map(die => {
                 return die.isHeld ? 
@@ -94,12 +91,7 @@ export default function App() {
                 </button>
                 <h2>Rolls: {numberRolls}</h2>
             </div>
-            <LoserCard 
-                timesup={timesup} 
-                setTimesup={setTimesup}
-                firstCardRender={firstCardRender} 
-                setFirstCardRender={setFirstCardRender}
-            />
+            { timesup && <LoserCard /> }
         </main>
     )
 }
