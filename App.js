@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Die from "./components/Die"
 import Timer from "./components/Timer"
 import LoserCard from "./components/LoserCard"
@@ -9,7 +9,15 @@ export default function App() {
     const [dice, setDice] = useState(allNewDice())
     const [numberRolls, setNumberRolls] =  useState(1)
     const [timesup, setTimesup] = useState(false)
-    const tenzies = dice.every(die => die.isHeld) && dice.every(die => die.value === die[0].value)
+    const tenzies = (dice.every(die => die.isHeld) && dice.every(die => die.value === die[0].value))
+    const btnRef = useRef(null)    
+
+    useEffect(()=>{
+        console.log(tenzies)
+        if (tenzies){            
+            btnRef.current.focus()
+        }
+    }, [dice])
     
     function allNewDice() {
         return new Array(10)
@@ -84,6 +92,7 @@ export default function App() {
                 <button 
                     className="roll-dice" 
                     onClick={rollDice}
+                    ref={btnRef}
                 >
                     {(tenzies || timesup) ? "New Game" : "Roll"}
                 </button>
