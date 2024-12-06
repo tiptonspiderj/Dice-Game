@@ -8,19 +8,11 @@ import Confetti from "react-confetti"
 export default function App() {
 
     const [dice, setDice] = useState(allNewDice())
-    const [tenzies, setTenzies] = useState(false)
     const [numberRolls, setNumberRolls] =  useState(1)
     const [timesup, setTimesup] = useState(false)
     const [firstCardRender, setFirstCardRender] = useState(true)
-    
-    useEffect(() => {
-        const allHeld = dice.every(die => die.isHeld)
-        const firstValue = dice[0].value
-        const allSameValue = dice.every(die => die.value === firstValue)
-        if (allHeld && allSameValue) {
-            setTenzies(true)
-        }
-    }, [dice])
+
+    const tenzies = dice.every(die => die.isHeld) && dice.every(die => die.value === die[0].value)
     
     function allNewDice() {
         return new Array(10)
@@ -37,7 +29,6 @@ export default function App() {
     function rollDice() {
         if(tenzies || timesup) {
              //reset to a new game 
-             setTenzies(false)
              setDice(allNewDice())
              setNumberRolls(1)
              setTimesup(false)
