@@ -8,7 +8,10 @@ export default function Die(props) {
 				.map((_, i) => <span className="pip" key={i}/>)
 		: null;
     return (
-        <div className="die-container" onClick={props.holdDice}>
+        <div className="die-container" 
+            onClick={props.holdDice}
+            aria-pressed={props.isHeld}
+            aria-label={`Die with value ${props.value}`}>
             <div style={styles} className="face">{pips}</div>
         </div>
     )
