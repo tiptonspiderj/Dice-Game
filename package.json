@@ -1,5 +1,5 @@
 {
-  "name": "Scrim-s0iegqamrr",
+  "name": "scrim-s0iegqamrr",
   "description": "https://v2.scrimba.com/the-frontend-developer-career-path-c0j/~0vg",
   "scripts": {
     "watch": "webpack -w",

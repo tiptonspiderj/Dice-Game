@@ -1,4 +1,4 @@
-import React from "react"
+import { useState, useEffect } from "react"
 import Die from "./components/Die"
 import Timer from "./components/Timer"
 import LoserCard from "./components/LoserCard"
@@ -7,13 +7,13 @@ import Confetti from "react-confetti"
 
 export default function App() {
 
-    const [dice, setDice] = React.useState(allNewDice())
-    const [tenzies, setTenzies] = React.useState(false)
-    const [numberRolls, setNumberRolls] =  React.useState(1)
-    const [timesup, setTimesup] = React.useState(false)
-    const [firstCardRender, setFirstCardRender] = React.useState(true)
+    const [dice, setDice] = useState(allNewDice())
+    const [tenzies, setTenzies] = useState(false)
+    const [numberRolls, setNumberRolls] =  useState(1)
+    const [timesup, setTimesup] = useState(false)
+    const [firstCardRender, setFirstCardRender] = useState(true)
     
-    React.useEffect(() => {
+    useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
         const firstValue = dice[0].value
         const allSameValue = dice.every(die => die.value === firstValue)
@@ -21,21 +21,17 @@ export default function App() {
             setTenzies(true)
         }
     }, [dice])
-
-    function generateNewDie() {
-        return {
-            value: Math.ceil(Math.random() * 6),
-            isHeld: false,
-            id: nanoid()
-        }
-    }
     
     function allNewDice() {
-        const newDice = []
-        for (let i = 0; i < 10; i++) {
-            newDice.push(generateNewDie())
-        }
-        return newDice
+        return new Array(10)
+                .fill(0)
+                .map( num => {
+                    return {
+                        value: Math.ceil(Math.random() * 6),
+                        isHeld: false,
+                        id: nanoid()
+                    }            
+                })
     }
     
     function rollDice() {
@@ -50,7 +46,7 @@ export default function App() {
             setDice(oldDice => oldDice.map(die => {
                 return die.isHeld ? 
                     die :
-                    generateNewDie()
+                    {...die, value: Math.ceil(Math.random() * 6)}
             }))
             setNumberRolls(numberRolls + 1)
         }
@@ -58,11 +54,11 @@ export default function App() {
     }
     
     function holdDice(id) {
-        setDice(oldDice => oldDice.map(die => {
-            return die.id === id ? 
-            {value: die.value, isHeld: !die.isHeld, id: die.id}
-            : die
-        }))
+        setDice(oldDice => oldDice.map( die => 
+            ( die.id === id ? 
+            {...die, isHeld: !die.isHeld}
+            : die )
+        ) )
     }
     
     const diceElements = dice.map(die => (
