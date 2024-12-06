@@ -1,11 +1,11 @@
-import React from "react"
+import { useState, useEffect } from "react"
 
 export default function Timer(props) {
     // Initial time in seconds
     const initialTime = 30
-    const [timeRemaining, setTimeRemaining] = React.useState(initialTime)
+    const [timeRemaining, setTimeRemaining] = useState(initialTime)
   
-    React.useEffect(() => {
+    useEffect(() => {
       const timerInterval = setInterval(() => {
         setTimeRemaining((prevTime) => {
           if (props.numberRolls === 1) {

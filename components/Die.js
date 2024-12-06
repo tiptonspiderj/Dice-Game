@@ -1,5 +1,3 @@
-import React from "react"
-
 export default function Die(props) {
     const styles = {
         backgroundColor: props.isHeld ? "#59E391" : "#e7e7e7"
