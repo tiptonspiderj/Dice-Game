@@ -38,7 +38,6 @@ export default function App() {
           }, 10)  
           // Cleanup the interval when the component unmounts
           return () => clearInterval(timerInterval)
-
     }, [dice, timesup])
 
       const seconds = Math.ceil(timeRemaining % 60)
@@ -57,10 +56,10 @@ export default function App() {
     
     function rollDice() {
         if(tenzies || timesup) {
+            //reset to a new game 
             setNumberRolls((prevNum) => prevNum - prevNum)
-             //reset to a new game 
-             setDice((prev) => allNewDice())
-             if (timesup) setTimesup((prev)=> !prev)             
+            setDice((prev) => allNewDice())
+            if (timesup) setTimesup((prev)=> !prev)             
         } else {           
             setDice(oldDice => oldDice.map( die => die.isHeld ? die : {...die, value: Math.ceil(Math.random() * 6) } ) )
             
