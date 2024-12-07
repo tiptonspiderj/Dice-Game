@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react"
 import Die from "./components/Die"
-import Timer from "./components/Timer"
 import LoserCard from "./components/LoserCard"
 import {nanoid} from "nanoid"
 import Confetti from "react-confetti"
@@ -9,14 +8,40 @@ export default function App() {
     const [dice, setDice] = useState(allNewDice())
     const [numberRolls, setNumberRolls] =  useState(1)
     const [timesup, setTimesup] = useState(false)
+    // Initial time in seconds
+    const initialTime = 30    
+    const [timeRemaining, setTimeRemaining] = useState(initialTime)
     const tenzies = (dice.every(die => die.isHeld) && dice.every(die => die.value === dice[0].value))
     const btnRef = useRef(null)    
+   
 
     useEffect(()=>{
         if (tenzies){            
             btnRef.current.focus()
         }
-    }, [dice])
+
+        const timerInterval = setInterval(() => {
+            setTimeRemaining((prevTime) => {
+              if (numberRolls === 1) {
+                return prevTime = initialTime
+              } else if (prevTime < 0) {
+                clearInterval(timerInterval)            
+                // Perform actions when the timer reaches zero
+                setTimesup(true)
+                return 0           
+              } else if (tenzies) {
+                return prevTime
+              } else {
+                return prevTime - 0.01
+              }
+            })
+          }, 10)  
+          // Cleanup the interval when the component unmounts
+          return () => clearInterval(timerInterval)
+
+    }, [dice, timesup])
+
+      const seconds = Math.ceil(timeRemaining % 60)
     
     function allNewDice() {
         return new Array(10)
@@ -32,15 +57,15 @@ export default function App() {
     
     function rollDice() {
         if(tenzies || timesup) {
+            setNumberRolls((prevNum) => prevNum - prevNum)
              //reset to a new game 
-             setDice(allNewDice())
-             setNumberRolls(1)
-             setTimesup(false)
+             setDice((prev) => allNewDice())
+             if (timesup) setTimesup((prev)=> !prev)             
         } else {           
             setDice(oldDice => oldDice.map( die => die.isHeld ? die : {...die, value: Math.ceil(Math.random() * 6) } ) )
             
         }
-            setNumberRolls(numberRolls + 1)
+        setNumberRolls((prev)=> prev + 1)
         }        
     
     
@@ -85,7 +110,9 @@ export default function App() {
                 {diceElements}
             </div>
             <div className="game-info">
-                <Timer numberRolls={numberRolls} tenzies={tenzies} setTimesup={setTimesup}/>
+                <div>
+                    <h2>Timer: {`${seconds}s`}</h2>
+                </div>
                 <button 
                     className="roll-dice" 
                     onClick={rollDice}
